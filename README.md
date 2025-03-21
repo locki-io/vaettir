@@ -1,9 +1,12 @@
 # Personnal Installation guideline (on macOS):
 
+```bash
 git clone https://github.com/elizaos/eliza.git
 cd packages/cli
 pnpm install --no-frozen-lockfile
-#back in the eliza directory
+```
+
+back in the eliza directory
 
 ```bash
 pnpm link cli
@@ -13,28 +16,23 @@ remove the changes in package.json :
 "cli": "workspace:\*",
 had a bad experience with this...
 
-✅ The Correct Workflow
-1️⃣ Work Inside vaettir and Commit Changes
-If you make changes inside vaettir, commit them inside the vaettir repo first:
+✅ Pull the latest changes from vaettir inside characters/ with:
 
 ```bash
-cd vaettir  # Enter the vaettir submodule
+git submodule update --remote --merge
+```
+
+✅ Commit & push changes to the submodule (vaettir):
+
+```bash
+cd characters
 git add .
-git commit -m "Updated vaettir with new changes"
-git push origin main  # Or whatever branch you're using
-```
-
-2️⃣ Go Back to elizaOs and Update the Submodule Reference
-After committing in vaettir, go back to elizaOs and update the submodule reference:
-
-```bash
+git commit -m "Updated characters submodule content"
+git push origin main  # Or your working branch
 cd ..
-git add characters  # Git sees it as a submodule update
-git commit -m "Updated vaettir submodule reference"
-git push origin vaettir  # Or your active branch
 ```
 
-# characters are stored in vaettir dirrectory
+# characters are stored in vaettir directory
 
 ```bash
 git remote set-url origin https://github.com/locki-io/vaettir.git
