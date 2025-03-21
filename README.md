@@ -1,10 +1,17 @@
 # Personnal Installation guideline (on macOS):
 
 git clone https://github.com/elizaos/eliza.git
-cd eliza/packages/cli
+cd packages/cli
 pnpm install --no-frozen-lockfile
 #back in the eliza directory
+
+```bash
 pnpm link cli
+```
+
+remove the changes in package.json :
+"cli": "workspace:\*",
+had a bad experience with this...
 
 ✅ The Correct Workflow
 1️⃣ Work Inside vaettir and Commit Changes
@@ -25,6 +32,12 @@ cd ..
 git add characters  # Git sees it as a submodule update
 git commit -m "Updated vaettir submodule reference"
 git push origin vaettir  # Or your active branch
+```
+
+# characters are stored in vaettir dirrectory
+
+```bash
+git remote set-url origin https://github.com/locki-io/vaettir.git
 ```
 
 # local llama
