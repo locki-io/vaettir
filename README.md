@@ -1,5 +1,7 @@
 # Personnal Installation guideline (on macOS):
 
+This will change in v2 (1.0.0)
+
 ```bash
 git clone https://github.com/elizaos/eliza.git
 cd packages/cli
